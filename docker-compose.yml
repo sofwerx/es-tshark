@@ -8,7 +8,7 @@ services:
       args:
         ELASTICSEARCH_VERSION: ${ELASTICSEARCH_VERSION}
       dockerfile: Dockerfile.template
-    image: sofwerx/es-tshark:${ELASTICSEARCH_VERSION}
+    image: sofwerx/es-tshark_template:${ELASTICSEARCH_VERSION}
     container_name: tshark_template
     hostname: tshark_template
     environment:
@@ -22,7 +22,7 @@ services:
       args:
         ELASTICSEARCH_VERSION: ${ELASTICSEARCH_VERSION}
       dockerfile: Dockerfile.pcap
-    image: sofwerx/es-tshark:${ELASTICSEARCH_VERSION}
+    image: sofwerx/es-tshark_pcap:${ELASTICSEARCH_VERSION}
     container_name: tshark_pcap
     hostname: tshark_pcap
     environment:

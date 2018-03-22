@@ -25,6 +25,8 @@ curl -H "Content-Type: application/json" -sXPUT ${CREDS} 'http://'$ES_HOST'/_tem
 
 echo ""
 
+while true; do
+
 curl -sXGET ${CREDS} 'http://'$ES_HOST'/_cat/indices?v' | grep pcap | while read line; do
   index="$(echo $line | awk '{print $3}')"
     curl -H "Content-Type: application/json" -sXPUT ${CREDS} 'http://'$ES_HOST'/'$index'/_settings' --data-binary '{
@@ -41,3 +43,7 @@ echo ""
 curl -H "Content-Type: application/json" -sXGET ${CREDS} 'http://'$ES_HOST'/_template/pcap-template'
 
 echo ""
+
+  sleep 300
+
+done
